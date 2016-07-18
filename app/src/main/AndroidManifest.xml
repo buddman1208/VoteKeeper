@@ -16,7 +16,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.SplashActivity" />
-        <activity android:name=".activity.AuthActivity"></activity>
+        <activity android:name=".activity.AuthActivity" />
+        <activity android:name=".activity.RegisterActivity"></activity>
     </application>
 
 </manifest>
