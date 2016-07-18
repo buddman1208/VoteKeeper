@@ -5,11 +5,11 @@ import android.os.Bundle;
 
 import mercy.killing.votekeeper.R;
 
-public class GroupSelectActivity extends AppCompatActivity {
+public class VoteRegisterActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_group_select);
+        setContentView(R.layout.activity_vote_register);
     }
 }

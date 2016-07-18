@@ -18,7 +18,8 @@
         <activity android:name=".activity.SplashActivity" />
         <activity android:name=".activity.AuthActivity" />
         <activity android:name=".activity.RegisterActivity" />
-        <activity android:name=".activity.GroupSelectActivity"></activity>
+        <activity android:name=".activity.GroupSelectActivity" />
+        <activity android:name=".activity.VoteRegisterActivity"></activity>
     </application>
 
 </manifest>
