@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/group_add_newVote"
+        android:title="새로운 투표 등록하기"/>
+</menu>
