@@ -1,6 +1,7 @@
 package mercy.killing.votekeeper.activity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -13,6 +14,8 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.melnykov.fab.FloatingActionButton;
+
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
@@ -22,7 +25,7 @@ public class GroupSelectActivity extends AppCompatActivity {
 
     Toolbar toolbar;
     ListView listView;
-
+    FloatingActionButton fab;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +36,8 @@ public class GroupSelectActivity extends AppCompatActivity {
 
     private void setDefault() {
         listView = (ListView) findViewById(R.id.group_select_listview);
+        fab = (FloatingActionButton) findViewById(R.id.group_select_fab);
+
         ArrayList<String> arr = new ArrayList<>();
         arr.add("아 새벽이군요 좋은 새벽이에요");
         arr.add("아 새벽이군요 좋은 새벽이에요");
@@ -43,6 +48,12 @@ public class GroupSelectActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 // 여기서 각 그룹 클릭되었을대 액션 정의
+            }
+        });
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), GroupAddActivity.class));
             }
         });
     }
