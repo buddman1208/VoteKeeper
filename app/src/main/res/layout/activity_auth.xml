@@ -37,10 +37,24 @@
             android:hint="Input Password"
             android:inputType="textPassword" />
 
-        <Button
-            android:id="@+id/auth_login_button"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="LOGIN" />
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <Button
+                android:id="@+id/auth_login_button"
+                android:layout_width="1dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="LOGIN" />
+            <Button
+                android:id="@+id/auth_start_register"
+                android:layout_width="1dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="REGISTER" />
+        </LinearLayout>
     </LinearLayout>
 </RelativeLayout>
