@@ -3,6 +3,8 @@ package mercy.killing.votekeeper.activity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import mercy.killing.votekeeper.R;
+
 public class GroupAddActivity extends AppCompatActivity {
 
     @Override
