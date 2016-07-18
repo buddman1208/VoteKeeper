@@ -21,7 +21,8 @@
         <activity android:name=".activity.GroupSelectActivity" />
         <activity android:name=".activity.VoteRegisterActivity" />
         <activity android:name=".activity.LockScreenActivity" />
-        <activity android:name=".activity.GroupInfoActivity"></activity>
+        <activity android:name=".activity.GroupInfoActivity" />
+        <activity android:name=".activity.SettingsActivity"></activity>
     </application>
 
 </manifest>
