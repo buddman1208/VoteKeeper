@@ -2,9 +2,6 @@ package mercy.killing.votekeeper.utils;
 
 import android.content.Context;
 import android.net.ConnectivityManager;
-
-import java.net.NetworkInterface;
-
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
@@ -18,10 +15,10 @@ public class NetworkHelper {
         this.context = context;
     }
     public static Retrofit retrofit;
-    public static mercy.killing.votekeeper.utils.NetworkInterface getNetworkInstance(){
+    public static NetworkInterface getNetworkInstance(){
         if(retrofit == null) {
             retrofit = new Retrofit.Builder()
-                    .baseUrl("http://:3309/")
+                    .baseUrl("http://223.54.47.237:3309/")
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
         }

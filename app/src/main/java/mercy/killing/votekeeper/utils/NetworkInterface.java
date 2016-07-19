@@ -32,6 +32,10 @@ public interface NetworkInterface {
     @FormUrlEncoded
     Call<User> getSelfInfo(@Field("id") String id);
 
+    @POST("/user/getUserList")
+    @FormUrlEncoded
+    Call<List<User>> getUserList(@Field("id") String id);
+
     @POST("/user/getGroupList")
     @FormUrlEncoded
     Call<List<Group>> getGroupList(@Field("id") String id);

@@ -1,14 +1,15 @@
 package mercy.killing.votekeeper.activity;
 
-import android.app.usage.NetworkStatsManager;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.afollestad.materialdialogs.MaterialDialog;
 
 import mercy.killing.votekeeper.R;
 import mercy.killing.votekeeper.models.User;
@@ -27,10 +28,16 @@ public class AuthActivity extends AppCompatActivity {
     Call<User> loginUser;
     NetworkInterface service;
 
+    MaterialDialog builder;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_auth);
+        builder = new MaterialDialog.Builder(this)
+                .title("데이터를 로드합니다..")
+                .progress(true, 0)
+                .cancelable(false)
+                .show();
         manager = new DataManager();
         manager.initializeManager(this);
         service = NetworkHelper.getNetworkInstance();
@@ -43,6 +50,7 @@ public class AuthActivity extends AppCompatActivity {
             loginUser.enqueue(new Callback<User>() {
                 @Override
                 public void onResponse(Call<User> call, Response<User> response) {
+                    builder.dismiss();
                     switch (response.code()) {
                         case 200:
                             Toast.makeText(AuthActivity.this, response.body().getName() + " 님 환영합니다", Toast.LENGTH_SHORT).show();
@@ -59,9 +67,13 @@ public class AuthActivity extends AppCompatActivity {
                 @Override
                 public void onFailure(Call<User> call, Throwable t) {
                     Log.e("asdf", t.getMessage());
+                    builder.dismiss();
                 }
             });
-        } else setDefault();
+        } else {
+            setDefault();
+            builder.dismiss();
+        }
     }
 
     private void setDefault() {

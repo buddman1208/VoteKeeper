@@ -5,7 +5,7 @@ package mercy.killing.votekeeper.models;
  */
 
 public class Group {
-    private String adminid, groupId;
+    private String adminid, groupId, groupname;
     private String[] voteId, membersId, gcmId;
 
     public String getAdminid() {
@@ -14,6 +14,10 @@ public class Group {
 
     public String getGroupId() {
         return groupId;
+    }
+
+    public String getGroupname() {
+        return groupname;
     }
 
     public String[] getVoteId() {
