@@ -18,7 +18,7 @@ public class NetworkHelper {
         this.context = context;
     }
     public static Retrofit retrofit;
-    public static NetworkInterface getNetworkInstance(){
+    public static mercy.killing.votekeeper.utils.NetworkInterface getNetworkInstance(){
         if(retrofit == null) {
             retrofit = new Retrofit.Builder()
                     .baseUrl("http://:3309/")
