@@ -1,9 +1,13 @@
 package mercy.killing.votekeeper.activity;
 
 import android.content.Context;
+import android.content.Intent;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.Drawable;
 import android.support.v4.util.Pair;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -17,16 +21,35 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import mercy.killing.votekeeper.R;
+import mercy.killing.votekeeper.utils.DataManager;
+import mercy.killing.votekeeper.utils.NetworkInterface;
 
 public class GroupInfoActivity extends AppCompatActivity {
 
     ListView groupInfoListView;
+    NetworkInterface service;
+    DataManager manager;
+    Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_group_info);
         setDefault();
+        setAppbarLayout();
+    }
+
+    private void setAppbarLayout() {
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        toolbar.setTitleTextColor(getResources().getColor(R.color.colorPrimary));
+        getSupportActionBar().setTitle("그룹 정보 보기");
+        getSupportActionBar().setElevation(5);
+        getSupportActionBar().setDisplayShowCustomEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        Drawable drawable = getResources().getDrawable(R.drawable.abc_ic_ab_back_material);
+        drawable.setColorFilter(getResources().getColor(R.color.colorPrimary), PorterDuff.Mode.SRC_ATOP);
+        getSupportActionBar().setHomeAsUpIndicator(drawable);
     }
 
     private void setDefault() {
@@ -47,9 +70,15 @@ public class GroupInfoActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
-            case R.id.group_add_newVote:
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                break;
+            case R.id.group_info_newVote:
+//                startActivity(new Intent(getApplicationContext(), ));
                 // 새로운 투표처리
+                break;
+            case R.id.group_info_editinfo:
                 break;
         }
         return super.onOptionsItemSelected(item);
@@ -68,11 +97,14 @@ public class GroupInfoActivity extends AppCompatActivity {
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
             View view = inflater.inflate(R.layout.group_info_listview_content, null);
-            TextView textView = (TextView) view.findViewById(R.id.mypage_listview_text);
+            TextView type = (TextView) view.findViewById(R.id.group_info_state);
+            TextView textView = (TextView) view.findViewById(R.id.group_info_title);
             TextView content = (TextView) view.findViewById(R.id.group_info_content);
+            type.setText("진행중인 투표");
             textView.setText(arr.get(position).first);
             content.setText(arr.get(position).second.toLocaleString());
             return view;
         }
     }
+
 }

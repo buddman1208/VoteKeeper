@@ -3,28 +3,32 @@
     package="mercy.killing.votekeeper">
 
     <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-        <activity android:name=".activity.MainActivity"></activity>
-        <activity android:name=".activity.SplashActivity"></activity>
+        <activity android:name=".activity.MainActivity" />
+        <activity android:name=".activity.SplashActivity" />
         <activity android:name=".activity.AuthActivity" />
         <activity android:name=".activity.RegisterActivity" />
-        <activity android:name=".activity.GroupSelectActivity">
+        <activity android:name=".activity.GroupSelectActivity"></activity>
+        <activity android:name=".activity.VoteRegisterActivity" />
+        <activity android:name=".activity.LockScreenActivity" />
+        <activity android:name=".activity.GroupInfoActivity">
+
+        </activity>
+        <activity android:name=".activity.SettingsActivity" />
+        <activity android:name=".activity.GroupAddActivity" />
+        <activity android:name=".activity.NewVoteActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.VoteRegisterActivity" />
-        <activity android:name=".activity.LockScreenActivity" />
-        <activity android:name=".activity.GroupInfoActivity" />
-        <activity android:name=".activity.SettingsActivity" />
-        <activity android:name=".activity.GroupAddActivity"></activity>
     </application>
 
 </manifest>
