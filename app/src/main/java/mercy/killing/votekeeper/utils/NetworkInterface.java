@@ -3,17 +3,13 @@ package mercy.killing.votekeeper.utils;
 import java.util.Date;
 import java.util.List;
 
-import kr.edcan.cumchuck.model.FacebookUser;
-import kr.edcan.cumchuck.model.TwitterUser;
 import mercy.killing.votekeeper.models.Group;
 import mercy.killing.votekeeper.models.User;
 import mercy.killing.votekeeper.models.Vote;
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
-import retrofit2.http.GET;
 import retrofit2.http.POST;
-import retrofit2.http.Query;
 
 /**
  * Created by KOHA_DESKTOP on 2016. 6. 29..
